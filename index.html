@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reversi (Othello)</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chess-board"></i> Reversi (Othello)</h1>
+            <p class="subtitle">Classic Strategy Board Game</p>
+        </header>
+
+        <div class="game-wrapper">
+            <div class="game-info">
+                <div class="player-info player-black active">
+                    <div class="player-header">
+                        <i class="fas fa-circle player-icon black"></i>
+                        <h3>Black</h3>
+                    </div>
+                    <div class="player-score">
+                        <span id="black-score">2</span> disks
+                    </div>
+                    <div class="turn-indicator" id="black-indicator">
+                        <i class="fas fa-play"></i> Your turn
+                    </div>
+                </div>
+
+                <div class="game-controls">
+                    <div class="game-status" id="game-status">
+                        Black's turn
+                    </div>
+                    <button id="restart-btn" class="btn">
+                        <i class="fas fa-redo"></i> Restart Game
+                    </button>
+                    <button id="rules-btn" class="btn secondary">
+                        <i class="fas fa-question-circle"></i> Game Rules
+                    </button>
+                </div>
+
+                <div class="player-info player-white">
+                    <div class="player-header">
+                        <i class="fas fa-circle player-icon white"></i>
+                        <h3>White</h3>
+                    </div>
+                    <div class="player-score">
+                        <span id="white-score">2</span> disks
+                    </div>
+                    <div class="turn-indicator" id="white-indicator">
+                        Waiting...
+                    </div>
+                </div>
+            </div>
+
+            <div class="board-container">
+                <div class="board" id="board"></div>
+                <div class="board-overlay" id="invalid-move">Invalid move!</div>
+            </div>
+
+            <div class="move-history">
+                <h3><i class="fas fa-history"></i> Move History</h3>
+                <div class="history-list" id="history-list"></div>
+            </div>
+        </div>
+
+        <div class="rules-modal" id="rules-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-book"></i> Reversi Game Rules</h2>
+                    <button class="close-modal" id="close-rules">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="rules-section">
+                        <h3><i class="fas fa-play-circle"></i> Objective</h3>
+                        <p>Have the majority of disks of your color on the board at the end of the game.</p>
+                    </div>
+                    <div class="rules-section">
+                        <h3><i class="fas fa-chess-board"></i> Game Setup</h3>
+                        <p>The game starts with 4 disks placed in the center of the board: 2 black, 2 white.</p>
+                        <div class="setup-example">
+                            <div class="example-board">
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell white"></div>
+                                <div class="example-cell black"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell black"></div>
+                                <div class="example-cell white"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                                <div class="example-cell"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rules-section">
+                        <h3><i class="fas fa-exchange-alt"></i> Gameplay</h3>
+                        <ul>
+                            <li><strong>Black</strong> always moves first.</li>
+                            <li>Players alternate turns placing one disk on an empty square.</li>
+                            <li>A move must capture at least one opponent's disk.</li>
+                            <li>Disks are captured by "outflanking" opponent's disks.</li>
+                            <li>If you cannot make a valid move, your turn is skipped.</li>
+                            <li>The game ends when neither player can make a valid move.</li>
+                        </ul>
+                    </div>
+                    <div class="rules-section">
+                        <h3><i class="fas fa-trophy"></i> Winning</h3>
+                        <p>When the game ends, the player with the most disks of their color wins.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Reversi Game &copy; 2023 | Built with HTML, CSS & JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
